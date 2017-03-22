@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Text Editor CKEditor</title>
+    <script type="text/javascript" src="ckeditor.js"></script>
+</head>
+<body>
+	<form action="action.php" method="post">
+		<label>Nama</label><br>
+		<input type="text" name="nama"><br><br>
+		<label>Email</label><br>
+		<input type="email" name="email"><br><br>
+		<label>Pesan</label><br>
+		<textarea id="pesan1" name="pesan" cols="30" rows="5"></textarea><br><br>
+		<label>Pesan 2</label><br>
+		<textarea id="pesan2" name="pesan2" cols="30" rows="5"></textarea>
+		<p id="status"></p>
+		<br><br>
+		<input type="submit" name="" value="KIRIM">
+	</form>
+
+	<div id="pesan3" contenteditable="true">
+		<h1>Ini adalah sebuh judul artikel</h1>
+		<p>Ini adalah isi artikel</p>
+	</div>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			CKEDITOR.replace('pesan1', {
+				customConfig:""
+			});
+
+			// CKEDITOR.replace('pesan2', {
+			// 	customConfig: 'config.js'
+			// });
+
+			var editor = CKEDITOR.replace('pesan2');
+
+			editor.on('change', function(tes){
+				document.getElementById("status").innerHTML = "Total Data : " + tes.editor.getData().length;
+			});
+		}
+		CKEDITOR.disableAutoInline = true;
+		CKEDITOR.inline('pesan3', {
+			customConfig:""
+		});
+	</script>
+</body>
+</html>

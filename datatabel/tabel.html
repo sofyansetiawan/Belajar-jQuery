@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Data Table</title>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="datatabel/media/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="datatabel/media/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <table id="tabel1" class="display">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Tanggal Lahir</th>
+                <th>Pekerjaan</th>
+                <th>Umur</th>
+                <th>Pendapatan Per Bulan</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Tanggal Lahir</th>
+                <th>Pekerjaan</th>
+                <th>Umur</th>
+                <th>Pendapatan Per Bulan</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>Ari Andalas</td>
+                <td>Malang</td>
+                <td>1992/04/25</td>
+                <td>Manager</td>
+                <td>24</td>
+                <td>Rp 8.500.000,00</td>
+            </tr>
+            <tr>
+                <td>Vitry Anggraini</td>
+                <td>Ponorogo</td>
+                <td>1994/12/01</td>
+                <td>Sales</td>
+                <td>22</td>
+                <td>Rp 1.000.000,00</td>
+            </tr>
+            <tr>
+                <td>Dimas Ahmad</td>
+                <td>Kediri</td>
+                <td>1990/04/07</td>
+                <td>Desain Grafis</td>
+                <td>26</td>
+                <td>Rp 3.000.000,00</td>
+            </tr>
+            <tr>
+                <td>Siti Munawar</td>
+                <td>Jombang</td>
+                <td>1997/03/30</td>
+                <td>Guru Les</td>
+                <td>19</td>
+                <td>Rp 2.700.000,00</td>
+            </tr>
+            <tr>
+                <td>Nur Hidayat</td>
+                <td>Tuban</td>
+                <td>1993/07/21</td>
+                <td>Pengusaha Roti</td>
+                <td>23</td>
+                <td>Rp 9.000.000,00</td>
+            </tr>
+            <tr>
+                <td>Budi Gunawan</td>
+                <td>Mojokerto</td>
+                <td>1994/11/08</td>
+                <td>Polisi</td>
+                <td>22</td>
+                <td>Rp 5.000.000,00</td>
+            </tr>
+            <tr>
+                <td>Indah Pratiwi</td>
+                <td>Surabaya</td>
+                <td>1991/08/24</td>
+                <td>Polisi Wanita</td>
+                <td>25</td>
+                <td>Rp 5.000.000,00</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // $("#tabel1").DataTable();
+
+            // $("#tabel1, #tabel2").DataTable();
+
+            // $("#tabel1").DataTable({
+            //     "paging": false,
+            //     "ordering": false,
+            //     "info": false
+            // });
+
+            // $("#tabel1").DataTable({
+            //     "order": [[4, "desc"]]
+            // });
+
+            // $("#tabel1").DataTable({
+            //     "dom": 'tilfp'
+            // });
+
+             $("#tabel1").DataTable({
+                "language": {
+                    "decimal":        "",
+                    "emptyTable":     "Tidak ada data yang tersedia di tabel",
+                    "info":           "Menampilkan _START_ sampai _END_ dari _TOTAL_ masukan",
+                    "infoEmpty":      "Menampilkan 0 sampai 0 dari 0 masukan",
+                    "infoFiltered":   "(difilter dari _MAX_ total masukan)",
+                    "infoPostFix":    "",
+                    "thousands":      ".",
+                    "lengthMenu":     "Menampilkan _MENU_ masukan",
+                    "loadingRecords": "memuat...",
+                    "processing":     "Sedang di proses...",
+                    "search":         "Pencarian:",
+                    "zeroRecords":    "Arsip tidak ditemukan",
+                    "paginate": {
+                        "first":      "Pertama",
+                        "last":       "Terakhir",
+                        "next":       "lanjut",
+                        "previous":   "kembali"
+                    },
+                    "aria": {
+                        "sortAscending":  ": aktifkan urutan kolom ascending",
+                        "sortDescending": ": aktifkan urutan kolom descending"
+                    }
+                }
+             });                       
+
+        });
+    </script>
+</body>
+</html>

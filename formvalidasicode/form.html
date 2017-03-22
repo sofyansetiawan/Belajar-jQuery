@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Form Validasi</title>
+</head>
+<body>
+
+    <form id="form2" action="tes.php" method="post" target="_blank">
+        <label>Nama Depan</label>
+        <input type="text" name="nama_depan" required id="nama_depan1"><br><br>
+        <label>Nama Belakang</label>
+        <input type="text" name="nama_belakang" required id="nama_belakang1"><br><br>
+        <label>Nama Lengkap</label>
+        <input type="text" name="nama_lengkap" required id="nama_lengkap1"><br><br>
+        <label>Username</label>
+        <input type="text" name="username" required id="username1"><br><br>
+        <label>Jenis Kelamin</label><br>
+        <input type="radio" name="jenis" value="l" required> Laki-Laki<br>
+        <input type="radio" name="jenis" value="p" required> Perempuan
+        <br><br>
+        <label>Email</label>
+        <input type="email" name="email" required><br><br>
+        <label>Password</label>
+        <input type="password" name="password" required id="password1"><br><br>
+        <label>Konfirmasi Password</label>
+        <input type="password" name="konfirmasi_password" required><br><br>
+        <label>Alamat Website</label>
+        <input type="url" name="konfirmasi_password" required><br><br>
+        <label>Minat (Pilihan minimal 2)</label>
+        <select name="pekerjaan" required multiple title="Pilih minimal 2 minat">
+            <option value="m">Manager</option>
+            <option value="t">Staff</option>
+            <option value="s">Sepervisor</option>
+            <option value="d">Direktur</option>
+        </select>
+        <br><br>
+        <label>Pesan</label>
+        <textarea name="pesan" cols="30" rows="4"></textarea><br><br>
+        <label>Setuju?</label>
+        <input type="checkbox" name="setuju" required><br><br>
+        <input type="submit" name="submit" value="KIRIM">
+    </form>
+
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="jquery.validate.min.js"></script>
+    <script type="text/javascript">
+
+        $.validator.setDefaults({
+            submitHandler: function(){
+                alert("Sudah Tersubmit");
+            }
+        });
+
+        $("#form2").validate({
+            rules:{
+                nama_depan: "required",
+                nama_belakang: "required",
+                nama_lengkap:{
+                    required: true,
+                    minlength:3
+                },
+                username:{
+                    required: true,
+                    minlength:3
+                },
+                password:{
+                    required: true,
+                    minlength:5
+                },
+                jenis: "required",
+                konfirmasi_password:{
+                    required: true,
+                    minlength:5,
+                    equalTo:"#password1"
+                },
+                email:{
+                    required:true,
+                    email: true
+                },
+                setuju : "required"
+            },
+            messages:{
+                nama_depan: "Masukkan nama depan Anda",
+                nama_belakang: "Masukkan nama belakang Anda",
+                nama_belakang: "Masukkan nama lengkap Anda",
+                username: {
+                    required: "Masukkan username Anda",
+                    minlength: "Masukkan minimal 3 karakter"
+                },
+                password: {
+                    required: "Masukkan password Anda",
+                    minlength: "Masukkan minimal 5 karakter"
+                },
+                jenis: "Harap pilih salah satu",
+                konfirmasi_password:{
+                    required: "Masukkan password lagi",
+                    minlength: "Password Anda minimal 5 karakter",
+                    equalTo: "Masukkan password yang sama dengan diatas"
+                },
+                email: "Masukkan email",
+                setuju: "Harap setuju dengan form ini"
+            }
+        });
+
+        $("#nama_lengkap1").focus(function(){
+            var nama_depan1 = $("#nama_depan1").val();
+            var nama_belakang1 = $("#nama_belakang1").val();
+            if(nama_depan1 && nama_belakang1 && !this.value){
+                this.value = nama_depan1 + " " + nama_belakang1;
+            }
+        });
+
+        $("#username1").focus(function(){
+            var nama_depan1 = $("#nama_depan1").val();
+            var nama_belakang1 = $("#nama_belakang1").val();
+            if(nama_depan1 && nama_belakang1 && !this.value){
+                this.value = nama_depan1 + "_" + nama_belakang1;
+            }
+        });
+    </script>
+</body>
+</html>
